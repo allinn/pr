@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import CoachForm from '../../components/coaches/CoachForm.vue';
+import CoachForm from '../../components/main/mainForm.vue';
 
 export default {
   components: {
