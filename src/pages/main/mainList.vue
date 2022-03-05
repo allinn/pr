@@ -4,25 +4,57 @@
       <p>{{ error }}</p>
     </base-dialog> -->
     
-    <section>
+  
+      <!--
       <base-card>
         <div v-if="isLoading">
           <base-spinner></base-spinner>
         </div>
-        <ul v-else-if="hasCoaches">
-          <main-item
-            v-for="coach in filteredCoaches"
-            :key="coach.id"
-            :id="coach.id"
-            :first-name="coach.firstName"
-            :last-name="coach.lastName"
-            :rate="coach.hourlyRate"
-            :areas="coach.areas"
-          ></main-item>
+        <ul v-else-if="hasCoaches"> -->
+        <div v-for="(item,Index) in temp" :key="Index">
+        <ul>
+          <li v-if="Index%4!=3">
+          <main-item 
+            :picture="item.picture"
+            :title="item.title"
+            :price="item.price"
+            :discountedprice="item.discountedprice"
+            :discription= "item.discription"
+            :badges="item.badges">
+          </main-item>
+                    <main-item 
+            :picture="item.picture"
+            :title="item.title"
+            :price="item.price"
+            :discountedprice="item.discountedprice"
+            :discription= "item.discription"
+            :badges="item.badges">
+          </main-item>
+                    <main-item 
+            :picture="item.picture"
+            :title="item.title"
+            :price="item.price"
+            :discountedprice="item.discountedprice"
+            :discription= "item.discription"
+            :badges="item.badges">
+          </main-item>
+          </li>
         </ul>
-        <h3 v-else>No coaches found.</h3>
-      </base-card>
-    </section>
+        <ul>
+        <li v-if="Index%4==3" id="sep">
+          <main-item 
+            :picture="item.picture"
+            :title="item.title"
+            :price="item.price"
+            :discountedprice="item.discountedprice"
+            :discription= "item.discription"
+            :badges="item.badges">{{$item=$item+4}}
+          </main-item>
+        </li>
+        </ul>
+        </div>
+   <!--   </base-card> -->
+
   </div>
 </template>
 
@@ -37,32 +69,79 @@ export default {
   },
   data() {
     return {
-      isLoading: false,
-      error: null,
-      activeFilters: {
-        frontend: true,
-        backend: true,
-        career: true,
-      },
 
       temp:
       [
         {
-          picture: null,
-          title: null,
-          price: null,
-          discountedprice: null,
-          discription: null,
-          badge: null,
+          picture: require('../../store/picture/img.jpg'),
+          title: "구두1",
+          price: "10000",
+          discountedprice: "8000",
+          discription: "세상에서 제일 아름다운 구두",
+          badges: ["5% 할인","주문폭주"],
         }
         ,
-        {
-          picture: null,
-          title: null,
-          price: null,
-          discountedprice: null,
-          discription: null,
-          badge: null,
+       {
+          picture: require('../../store/picture/img.jpg'),
+          title: "구두2",
+          price: "10000",
+          discountedprice: "8000",
+          discription: "세상에서 제일 아름다운 구두",
+          badges: ["5% 할인","주문폭주"],
+        }
+        ,
+               {
+          picture: require('../../store/picture/img.jpg'),
+          title: "구두3",
+          price: "10000",
+          discountedprice: "8000",
+          discription: "세상에서 제일 아름다운 구두",
+          badges: ["5% 할인","주문폭주"],
+        }
+        ,
+               {
+          picture: require('../../store/picture/img.jpg'),
+          title: "구두4",
+          price: "10000",
+          discountedprice: "8000",
+          discription: "세상에서 제일 아름다운 구두",
+          badges: ["5% 할인","주문폭주"],
+        }
+        ,
+               {
+          picture: require('../../store/picture/img.jpg'),
+          title: "구두5",
+          price: "10000",
+          discountedprice: "8000",
+          discription: "세상에서 제일 아름다운 구두",
+          badges: ["5% 할인","주문폭주"],
+        }
+        ,
+               {
+          picture: require('../../store/picture/img.jpg'),
+          title: "구두6",
+          price: "10000",
+          discountedprice: "8000",
+          discription: "세상에서 제일 아름다운 구두",
+          badges: ["5% 할인","주문폭주"],
+        }
+        ,
+                    {
+          picture: require('../../store/picture/img.jpg'),
+          title: "구두7",
+          price: "10000",
+          discountedprice: "8000",
+          discription: "세상에서 제일 아름다운 구두",
+          badges: ["5% 할인","주문폭주"],
+        }
+        ,
+                    {
+          picture: require('../../store/picture/img.jpg'),
+          title: "구두8",
+          price: "10000",
+          discountedprice: "8000",
+          discription: "세상에서 제일 아름다운 구두",
+          badges: ["5% 할인","주문폭주"],
         }
         ,
 
@@ -75,6 +154,7 @@ export default {
     isCoach() {
       return this.$store.getters['coaches/isCoach'];
     },
+  
     filteredCoaches() {
       const coaches = this.$store.getters['coaches/coaches'];
       return coaches.filter((coach) => {
@@ -95,7 +175,7 @@ export default {
     },
   },
   created() {
-    this.loadCoaches();
+  //  this.loadCoaches();
   },
   methods: {
     setFilters(updatedFilters) {
@@ -120,14 +200,32 @@ export default {
 </script>
 
 <style scoped>
-ul {
+
+
+
+div div
+{
+  display: flex;
+}
+
+ul
+ {
   list-style: none;
   margin: 0;
   padding: 0;
+   display: block;
 }
 
+#sep
+{
+  display: block;
+}
+
+
 .controls {
+  
   display: flex;
   justify-content: space-between;
 }
+
 </style>
