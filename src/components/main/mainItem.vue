@@ -1,10 +1,7 @@
 <template>
-  <li>
-
-
-      
+  <li>      
     <div class="actions">
-      <base-button mode="outline" link :to="coachContactLink">
+      <base-button mode="outline" link :to="ItemDetailLink">
           <img :src=picture>
       </base-button>
     </div>
@@ -27,11 +24,11 @@
 <script>
    
 export default {
-  props: ['picture', 'title', 'price', 'discountedprice', 'discription','badges'],
+  props: ['id','picture', 'title', 'price', 'discountedprice', 'discription','badges'],
   computed: {
 
-    coachContactLink() {
-      return this.$route.path + '/' + this.id + '/contact'; // /coaches/c1/contact
+    ItemDetailLink() {
+      return '/detail/' + this.id; 
     },
   },
   methods:

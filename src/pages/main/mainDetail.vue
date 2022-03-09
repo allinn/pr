@@ -2,10 +2,12 @@
   <div>
     <section>
       <base-card>
-        <h2>{{ fullName }}</h2>
-        <h3>${{ rate }}/hour</h3>
+        <img :src=picture>
+        <h3>${{ title }}</h3>
+        <h3>${{ id}} </h3>
       </base-card>
     </section>
+    <!--
     <section>
       <base-card>
         <header>
@@ -21,6 +23,7 @@
         <p>{{ description }}</p>
       </base-card>
     </section>
+    -->
   </div>
 </template>
 
@@ -33,26 +36,28 @@ export default {
     };
   },
   computed: {
-    fullName() {
-      return this.selectedCoach.firstName + ' ' + this.selectedCoach.lastName;
+    picture() {
+      return this.selectedCoach.picture;
     },
-    areas() {
-      return this.selectedCoach.areas;
+    title() {
+      return this.selectedCoach.title;
     },
-    rate() {
-      return this.selectedCoach.hourlyRate;
+    price() {
+      return this.selectedCoach.price;
     },
-    description() {
-      return this.selectedCoach.description;
+    discountedprice() {
+      return this.selectedCoach.discountedprice;
     },
-    contactLink() {
-      return this.$route.path + '/' + this.id + '/contact';
+    discription() {
+      return this.selectedCoach.discription;
+    },
+    badges() {
+      return this.selectedCoach.badges;
     },
   },
   created() {
-    this.selectedCoach = this.$store.getters['coaches/coaches'].find(
-      (coach) => coach.id === this.id
-    );
+    this.selectedCoach = this.$store.getters['items/items'].find(item => item.id === this.id);
+    console.log(this.selectedCoach, this.id);
   },
 };
 </script>
