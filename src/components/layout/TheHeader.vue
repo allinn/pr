@@ -25,7 +25,7 @@
   <header>
     <nav class="low">
       <h1>
-        <router-link to="/">엘사키즈</router-link>
+        <router-link to="/main">엘사키즈</router-link>
       </h1>
       <ul>
         <li>
@@ -51,31 +51,31 @@
     <nav class="low">
       <ul>
         <li>
-          <router-link to="/login">Best</router-link>
+          <router-link to="/main/Best">Best</router-link>
         </li>
         <li>
-          <router-link to="/requests">Outer</router-link>
+          <router-link to="/main/Outer">Outer</router-link>
         </li>
         <li>
-          <router-link to="/requests">Top</router-link>
+          <router-link to="/main/Top">Top</router-link>
         </li>
         <li>
-          <router-link to="/requests">Shirts & Blouse</router-link>
+          <router-link to="/main/Shirts&Blouse">Shirts & Blouse</router-link>
         </li>
         <li>
-          <router-link to="/requests">Knit & Cardigan</router-link>
+          <router-link to="/main/Knit&Cardigan">Knit & Cardigan</router-link>
         </li>
         <li>
-          <router-link to="/requests">Pants</router-link>
+          <router-link to="/main/Pants">Pants</router-link>
         </li>
         <li>
-          <router-link to="/requests">Jean</router-link>
+          <router-link to="/main/Jean">Jean</router-link>
         </li>
         <li>
-          <router-link to="/requests">Skirt & Dress</router-link>
+          <router-link to="/main/Skirt&Dress">Skirt & Dress</router-link>
         </li>
         <li>
-          <router-link to="/requests">Shoes</router-link>
+          <router-link to="/main/Shoes">Shoes</router-link>
         </li>
         
       </ul>
@@ -87,14 +87,14 @@
     <nav class="low">
       <ul>
         <li>
-            <router-link to="/login">Weekly Best</router-link>
+            <router-link to="/main/WeeklyBest">Weekly Best</router-link>
         </li>
         <li>
-            <router-link to="/login">Best Item</router-link>
+            <router-link to="/main/BestItem">Best Item</router-link>
         </li>
-        <li>
-            <router-link to="/login">Weekly Photo Queen</router-link>
-        </li>
+      <!--  <li>
+            <router-link to="/main/WeeklyPhotoQueen">Weekly Photo Queen</router-link>
+        </li> -->
       </ul>
     </nav>
 

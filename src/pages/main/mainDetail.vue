@@ -3,9 +3,12 @@
     <section>
       <base-card>
         <img :src=picture>
-        <h3>${{ title }}</h3>
-        <h3>${{ id}} </h3>
-      </base-card>
+        <h3>{{ title }}</h3>
+        <h3>{{ price}} </h3>
+        <h3>{{discountedprice}}</h3>
+        <h3>{{discription}}</h3>
+         <base-badge v-for="badge in badges" :key="badge" :type="badge" :title="badge"></base-badge>
+      </base-card>   
     </section>
     <!--
     <section>
@@ -25,6 +28,10 @@
     </section>
     -->
   </div>
+
+  <div>
+  </div>
+
 </template>
 
 <script>
@@ -32,6 +39,7 @@ export default {
   props: ['id'],
   data() {
     return {
+      dummyData: null,
       selectedCoach: null,
     };
   },
@@ -56,8 +64,18 @@ export default {
     },
   },
   created() {
-    this.selectedCoach = this.$store.getters['items/items'].find(item => item.id === this.id);
-    console.log(this.selectedCoach, this.id);
+      this.dummyData = this.$store.getters['items/items'];
+      for(var i=0; i<this.dummyData.length; i++)
+      {
+           for( var j=0; j<this.dummyData[i].length;j++)
+           {
+              if(this.dummyData[i][j].id === Number(this.id))
+              {         
+                this.selectedCoach = this.dummyData[i][j];
+              }
+           }
+      }
   },
 };
+
 </script>

@@ -10,6 +10,7 @@ export default {
             items: [
                 [{
                     id: 1,
+                    theme: ['Best','Outer'],
                     picture: require('../../picture/img.jpg'),
                     title: "구두1",
                     price: "10000",
@@ -20,6 +21,7 @@ export default {
                   ,
                  {
                     id: 2,
+                    theme: ['Best','Outer'],
                     picture: require('../../picture/img.jpg'),
                     title: "구두2",
                     price: "10000",
@@ -30,6 +32,7 @@ export default {
                   ,
                   {
                     id: 3,
+                    theme: ['Best','Outer'],
                     picture: require('../../picture/img.jpg'),
                     title: "구두3",
                     price: "10000",
@@ -40,6 +43,7 @@ export default {
                   ,
                   {
                     id: 4,
+                    theme: ['Best','Outer'],
                     picture: require('../../picture/img.jpg'),
                     title: "구두4",
                     price: "10000",
@@ -50,6 +54,7 @@ export default {
                   ,
                     [{
                     id: 5,
+                    theme: ['Best','Outer'],
                     picture: require('../../picture/img.jpg'),
                     title: "구두5",
                     price: "10000",
@@ -60,6 +65,7 @@ export default {
                   ,
                   {
                     id: 6,
+                    theme: ['Best','Outer'],
                     picture: require('../../picture/img.jpg'),
                     title: "구두6",
                     price: "10000",
@@ -70,6 +76,7 @@ export default {
                   ,
                   {
                     id: 7,
+                    theme: ['Best','Outer'],
                     picture: require('../../picture/img.jpg'),
                     title: "구두7",
                     price: "10000",
@@ -80,6 +87,7 @@ export default {
                   ,
                   {
                     id: 8,
+                    theme: ['Best','Outer'],
                     picture: require('../../picture/img.jpg'),
                     title: "구두8",
                     price: "10000",
