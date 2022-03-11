@@ -12,8 +12,7 @@
         </div>
         <ul v-else-if="hasCoaches"> -->
         <div v-for="(Item,Index) in temp" :key="Index">
-        <ul>
-          
+        <ul>          
           <main-item v-for="item in Item" :key="item.id"
             :id= "item.id"
             :picture="item.picture"
