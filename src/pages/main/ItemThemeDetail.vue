@@ -11,7 +11,7 @@
           <base-spinner></base-spinner>
         </div>
         <ul v-else-if="hasCoaches"> -->
-        <div v-for="(Item,Index) in temp" :key="Index">
+        <div v-for="(Item,Index) in tempload" :key="Index">
         <ul>          
           <main-item v-for="item in Item" :key="item.id"
             :id= "item.id"
@@ -41,7 +41,8 @@ export default {
   },
   data() {
     return {
-      temp: null,
+      temp: [],
+      
     };
   },
   computed: {
@@ -51,7 +52,39 @@ export default {
   
     tempload()
     {
-      return this.$store.getters['items/items'];
+      const dummy= this.$store.getters['items/items'];
+      var count=0;
+      var idx=[];
+      var ret=[];
+      
+      for(var i=0; i<dummy.length; i++)
+      {
+           for( var j=0; j<dummy[i].length;j++)
+           {
+             
+              if(dummy[i][j].theme.includes(this.theme))
+              {         
+                count++;
+                idx.push(dummy[i][j]);
+                
+                if(count==4)
+                {
+                  count=0;
+                  ret.push(idx);
+                  idx=[];
+                }
+                
+             
+              }
+           }
+      }
+
+      if(count!==0)
+      {
+        ret.push(idx);
+      }
+
+      return ret;
     },
 
     filteredCoaches() {
@@ -73,9 +106,8 @@ export default {
       return !this.isLoading && this.$store.getters['items/hasItmes'];
     },
   },
-  created() {
-    //this.temp=this.loadCoaches();
-   this.temp=this.tempload;
+  created() {      
+   
   },
   methods: {
     setFilters(updatedFilters) {
