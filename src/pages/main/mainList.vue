@@ -1,4 +1,10 @@
 <template>
+
+  <main-side-1>
+  </main-side-1>
+  <main-side-2>
+  </main-side-2>
+
   <div>
   <!--  <base-dialog :show="!!error" title="An error occurred!" @close="handleError">
       <p>{{ error }}</p>
@@ -11,7 +17,7 @@
           <base-spinner></base-spinner>
         </div>
         <ul v-else-if="hasCoaches"> -->
-        <div v-for="(Item,Index) in temp" :key="Index">
+      <div v-for="(Item,Index) in temp" :key="Index">
         <ul>          
           <main-item v-for="item in Item" :key="item.id"
             :id= "item.id"
@@ -32,14 +38,19 @@
 
 <script>
 import MainItem from '../../components/main/mainItem.vue';
+import MainSide1 from '../../components/main/mainSide1.vue';
+import MainSide2 from '../../components/main/mainSide2.vue';
 
 
 export default {
   components: {
     MainItem,
+    MainSide1,
+    MainSide2,
   },
   data() {
     return {
+      
       temp: null,
     };
   },
@@ -47,7 +58,8 @@ export default {
   //  isCoach() {
    //   return this.$store.getters['items/isCoach'];
    // },
-  
+
+
     tempload()
     {
       return this.$store.getters['items/items'];

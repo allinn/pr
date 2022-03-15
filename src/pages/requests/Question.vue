@@ -1,20 +1,22 @@
 <template>
     <section>
         <h1> 질문과 대답 </h1>
-        <div>
-            <h3> 번호 </h3>
-            <h3> 제목 </h3>
-            <h3> 작성자 </h3>
-            <h3> 작성일 </h3>
-            <h3> 조회 </h3>
-        </div>
-        <div>
-            <h3>  </h3>
-            <h3> 입금자를 찾습니다. </h3>
-            <h3> ADMIN </h3>
-            <h3> 2022/02/28 </h3>
-            <h3> 1 </h3>
-        </div>
+        <table>
+            <tr>
+            <th> 번호 </th>
+            <th> 제목 </th>
+            <th> 작성자 </th>
+            <th> 작성일 </th>
+            <th> 조회 </th>
+            </tr>
+            <tr>
+            <td>  </td>
+            <td> 입금자를 찾습니다. </td>
+            <td> ADMIN </td>
+            <td> 2022/02/28 </td>
+            <td> 1 </td>
+            </tr>
+        </table>
  
 
 
