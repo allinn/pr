@@ -6,7 +6,38 @@ export default {
     namespaced: true,
     state() {
         return {
-            requests: []
+
+            admin_requests:[
+                {
+                    id: '0',
+                    username: 'ADMIN',
+                    password: '1234',
+                    title: 'Q&A 공지사항',
+                    discription: '문의시 주의점',
+                    date: '2022-03-16',
+                    seen: '100',
+                },
+            ],
+
+
+
+            requests: [
+                {
+                    id: '1',
+                    username: 'abc',
+                    password: '1234',
+                    title: '배송문의',
+                    discription: '문의',
+                    attach: 'null',
+                    date: '2022-03-16',
+                    seen: '2',
+                },
+
+
+
+
+
+            ]
         };
     },
     mutations,
