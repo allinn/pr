@@ -141,6 +141,30 @@ export default {
 <style scoped>
 
 
+button
+{
+   background-color: blue;
+
+  border: none;
+
+  color: white;
+
+  padding: 3px 30px;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  display: inline-block;
+
+  font-size: 16px;
+
+  margin: 4px 2px;
+
+  cursor: pointer;
+}
+
+
 li {
     list-style: none;
     }
