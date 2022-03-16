@@ -7,18 +7,17 @@
     -->
   <router-view>
   </router-view>
-  <the-footer>
-  </the-footer>
+  <!--<the-footer>
+  </the-footer>-->
 </template>
 
 <script>
-import TheFooter from './components/layout/TheFooter.vue';
 import TheHeader from './components/layout/TheHeader.vue';
 
 export default {
   components: {
     TheHeader,
-    TheFooter,
+    
   }  
 }
 </script>

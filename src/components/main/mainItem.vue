@@ -7,7 +7,7 @@
     </div>
 
     <div>
-     
+    
          <h4>{{ title }}</h4>
          <h4>{{ price }} 원 </h4>
           <h4>{{ discountedprice }} 원 </h4>
@@ -16,10 +16,6 @@
     </div>
   </li>
 </template>
-
-        
-
-
 
 <script>
    
