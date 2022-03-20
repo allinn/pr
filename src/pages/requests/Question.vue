@@ -9,19 +9,28 @@
             <th> 작성일 </th>
             <th> 조회 </th>
             </tr>
-            <tr>
-                
-            <main-table v-for="ad_data in admin_Data" :key="ad_data.title"
+            <main-table v-for="ad_data in admin_Data" :key="ad_data.id"
                 :username="ad_data.username"
                 :password="ad_data.password"
                 :title="ad_data.title"
                 :discription="ad_data.discription"
-                :data="ad_data.data"
+                :date="ad_data.date"
                 :seen="ad_data.seen"
-                :id="ad_data.id"
+                :page_type="ad_data.type"
             >
             </main-table>
-            </tr>
+            <main-table v-for="data in Data" :key="data.id"
+                :id="data.id"
+                :username="data.username"
+                :password="data.password"
+                :title="data.title"
+                :discription="data.discription"
+                :date="data.date"
+                :seen="data.seen"
+                :attach="data.attach"
+                :page_type="data.type"
+            >
+            </main-table>
         </table>
     </section>
 </template>
@@ -62,13 +71,12 @@ export default {
     },
     method: {
 
-       
-
     },
     created(){
-         this.admin_data= this.$store.getters['requests/admin_requests'];
-         this.data = this.$store.getters['requests/requests'];
-         console.log(this.admin_data);
+         this.admin_data= this.$store.getters['requests/admin_requests_question'];
+         this.data = this.$store.getters['requests/requests_question'];
+
+         
     },
 
 }

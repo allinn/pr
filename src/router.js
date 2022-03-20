@@ -13,6 +13,8 @@ import Question from './pages/requests/Question.vue';
 import Review from './pages/requests/Review.vue';
 import Notice from './pages/requests/Notice.vue';
 import Search from './pages/requests/Search.vue';
+import QuestionDetail from './pages/requests/QuestionDetail.vue';
+import NoticeDetail from './pages/requests/NoticeDetail.vue';
 import Join from './pages/user/Join.vue';
 import Cart from './pages/user/Cart.vue';
 import Order from './pages/user/MyPage.vue';
@@ -38,6 +40,21 @@ const router = createRouter({
            //     { path: 'contact', component: ContactCoach } // /coaches/c1/contact
            // ]
         },
+
+        {
+            path: '/question/:id',
+            component: QuestionDetail,
+            props: true,
+
+        },
+
+        {
+            path: '/notice/:id',
+            component: NoticeDetail,
+            props: true,
+
+        },
+
         { path: '/:notFound(.*)', component: NotFound },
         { path: '/login', component: Login },
         { path: '/question', component: Question },

@@ -16,6 +16,19 @@ export default {
                     discription: '문의시 주의점',
                     date: '2022-03-16',
                     seen: '100',
+                    type: 'question',
+                },
+
+                {
+                    id: '2',
+                    username: 'drx',
+                    password: '1234',
+                    title: '배송문의',
+                    discription: '문의',
+                    attach: 'null',
+                    date: '2022-03-16',
+                    seen: '23',
+                    type: 'notice',
                 },
             ],
 
@@ -31,11 +44,8 @@ export default {
                     attach: 'null',
                     date: '2022-03-16',
                     seen: '2',
+                    type: 'question',
                 },
-
-
-
-
 
             ]
         };

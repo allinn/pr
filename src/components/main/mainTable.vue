@@ -1,24 +1,68 @@
 <template>
-      <td>※</td>
+    <tr>
+      <td>{{id}}</td>       
       <router-link :to="domain">
       <td>{{ title }}  </td>
       </router-link>
       <td>{{username}} </td>
-      <td>{{data}}</td>
+      <td>{{date}}</td>
       <td>{{seen}}</td>
+    </tr>
 </template>
 
 <script>
    
 export default {
-  props: ['id', 'username','password', 'title', 'discription', 'date', 'seen'],
+
+  props: {
+    id: {
+      required: false,
+      default: '※'
+    },
+
+    page_type:{
+      required: true,
+      type: String,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    discription: {
+      type: String,
+      required: true,
+    },
+    date: {
+      require: true,
+      type: String,
+    },
+    seen: {
+      required: true,
+      type: String,
+    },
+    attach: {
+      required: false,
+      
+    },
+
+  },
+
   computed: {
       check(){
         return console.log(this.title);
       },
 
       domain(){
-        return '/Q&A/'+this.id;
+        console.log(this.page_type);
+        return '/'+this.page_type+'/'+this.id;
       },
 
    // ItemDetailLink() {

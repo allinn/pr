@@ -9,35 +9,58 @@
             <th> 작성일 </th>
             <th> 조회 </th>
             </tr>
-            <tr>
-            <td>  </td>
-            <td> 입금자를 찾습니다. </td>
-            <td> ADMIN </td>
-            <td> 2022/02/28 </td>
-            <td> 1 </td>
-            </tr>
+            <main-table v-for="ad_data in admin_Data" :key="ad_data.id"
+                :username="ad_data.username"
+                :password="ad_data.password"
+                :title="ad_data.title"
+                :discription="ad_data.discription"
+                :date="ad_data.date"
+                :seen="ad_data.seen"
+                :page_type="ad_data.type"
+            >
+            </main-table>
         </table>
- 
-
-
     </section>
 </template>
-
-
-
-
 <script>
-
+import mainTable from '../../components/main/mainTable.vue';
 
 export default {
-    data() {
-        
+ components: {
+    mainTable,
+  },
 
+    data() {
+        return{
+        admin_data: null,
+    
+        };
     },
 
+    computed: {
 
+    date_change()
+        {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+            return year + '-' + month  + '-' + day;
+        },
+    
+    admin_Data(){
+        return this.admin_data;
+    },
 
+    },
+    method: {
 
+       
+
+    },
+    created(){
+         this.admin_data= this.$store.getters['requests/admin_requests_notice'];        
+    },
 
 }
 </script>
