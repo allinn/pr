@@ -10,6 +10,7 @@
             <th> 조회 </th>
             </tr>
             <main-table v-for="ad_data in admin_Data" :key="ad_data.id"
+                :id="ad_data.id"
                 :username="ad_data.username"
                 :password="ad_data.password"
                 :title="ad_data.title"

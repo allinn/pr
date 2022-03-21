@@ -45,7 +45,7 @@ const router = createRouter({
             path: '/question/:id',
             component: QuestionDetail,
             props: true,
-
+            
         },
 
         {

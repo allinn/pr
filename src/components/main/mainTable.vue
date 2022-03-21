@@ -1,6 +1,7 @@
 <template>
     <tr>
-      <td>{{id}}</td>       
+      <td v-if="username === 'ADMIN'">※</td>
+      <td v-else>{{id}}</td>       
       <router-link :to="domain">
       <td>{{ title }}  </td>
       </router-link>
@@ -16,8 +17,8 @@ export default {
 
   props: {
     id: {
-      required: false,
-      default: '※'
+      required: true,
+      type: Number,
     },
 
     page_type:{
