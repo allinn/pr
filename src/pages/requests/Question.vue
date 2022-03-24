@@ -34,17 +34,25 @@
             </main-table>
         </table>
     </section>
+
+    <main-filter :type="typeofPage"></main-filter>
+
+
 </template>
 <script>
+import MainFilter from '../../components/main/mainFilter.vue';
 import mainTable from '../../components/main/mainTable.vue';
 
 export default {
  components: {
     mainTable,
+   
+  MainFilter,
   },
 
     data() {
         return{
+        typeofPage: "question",
         admin_data: null,
         data: null,
         };
@@ -75,11 +83,8 @@ export default {
     },
     created(){
          this.admin_data= this.$store.getters['requests/admin_requests_question'];
-         this.data = this.$store.getters['requests/requests_question'];
-
-
-
-         
+         this.data = this.$store.getters['requests/requests_question'];    
+          
     },
 
 }

@@ -1,45 +1,78 @@
 <template>
   <base-card>
-    <h2>Find Your Coach</h2>
     <span class="filter-option">
-      <input type="checkbox" id="frontend" checked @change="setFilter" />
-      <label for="frontend">Frontend</label>
+      <input type="radio" name="radioBtn" id="name" checked @change="setFilter" >
+      <label for="name">이름</label>
     </span>
     <span class="filter-option">
-      <input type="checkbox" id="backend" checked @change="setFilter" />
-      <label for="backend">Backend</label>
+      <input type="radio" name="radioBtn" id="title"  @change="setFilter" >
+      <label for="title">제목</label>
     </span>
     <span class="filter-option">
-      <input type="checkbox" id="career" checked @change="setFilter" />
-      <label for="career">Career</label>
+      <input type="radio" name="radioBtn" id="content"  @change="setFilter" >
+      <label for="content">내용</label>
     </span>
+
+    <form @submit.prevent="submitForm">
+      <div class="form-control">
+        <label for="search"></label>
+        <input
+        type="text"
+        id="search"
+        v-model.trim="search"
+        />
+        <base-button>검색</base-button>
+      </div>
+    </form>
+
   </base-card>
 </template>
 
 <script>
 export default {
-  emits: ['change-filter'],
+  props: ['type'],
+  emits: ['change-filter', 'query',],
   data() {
     return {
-      filters: {
-        frontend: true,
-        backend: true,
-        career: true
-      }
+      set_filter: {
+        val: 'name',
+      },
+
+      page: {
+        
+      },
+      search: null,
     };
   },
+
+  computed: {
+
+  },
+
+
   methods: {
     setFilter(event) {
+            
       const inputId = event.target.id;
-      const isActive = event.target.checked;
-      const updatedFilters = {
-        ...this.filters,
-        [inputId]: isActive
-      };
-      this.filters = updatedFilters;
-      this.$emit('change-filter', updatedFilters);
-    }
-  }
+      this.set_filter.val = inputId;
+    },
+
+    submitForm() {
+
+        const formData ={
+          selected: this.set_filter.val,
+          search_data: this.search,
+          type_: this.type,
+        };
+
+        console.log(formData);
+
+        this.$emit('save-data', formData);
+      
+
+     },
+  },
+
 }
 </script>
 
