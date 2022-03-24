@@ -57,12 +57,10 @@ export default {
   },
 
   computed: {
-      check(){
-        return console.log(this.title);
-      },
+  
 
       domain(){
-        console.log(this.page_type);
+       
         return '/'+this.page_type+'/'+this.id;
       },
 

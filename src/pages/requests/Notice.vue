@@ -22,19 +22,23 @@
             </main-table>
         </table>
     </section>
+
+    <main-filter :type="typeofPage"></main-filter>
 </template>
 <script>
 import mainTable from '../../components/main/mainTable.vue';
+import mainFilter from '../../components/main/mainFilter.vue';
 
 export default {
  components: {
     mainTable,
+    mainFilter,
   },
 
     data() {
         return{
         admin_data: null,
-    
+        typeofPage: "notice",
         };
     },
 

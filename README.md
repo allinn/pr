@@ -1,2 +1,2 @@
 # pr
-양립되도록 MAINTABLE 수정.
+  // formdata를 통해 get 메서드로 페이징 구현하기.
