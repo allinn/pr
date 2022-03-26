@@ -31,7 +31,7 @@
 <script>
 export default {
   props: ['type'],
-  emits: ['change-filter', 'query',],
+  emits: ['save-data'],
   data() {
     return {
       set_filter: {

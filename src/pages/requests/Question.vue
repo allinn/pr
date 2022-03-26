@@ -35,7 +35,8 @@
         </table>
     </section>
 
-    <main-filter :type="typeofPage"></main-filter>
+    <main-filter :type="typeofPage" @save-data="formData" ></main-filter>
+    
 
 
 </template>
@@ -46,15 +47,17 @@ import mainTable from '../../components/main/mainTable.vue';
 export default {
  components: {
     mainTable,
-   
-  MainFilter,
+    MainFilter,
   },
 
     data() {
         return{
         typeofPage: "question",
         admin_data: null,
-        data: null,
+        data: null, //페이징 받은 데이터
+        query_data: null, //페이징 할 데이터
+        page_data: null, //페이징 할 숫자데이터
+
         };
     },
 
@@ -77,16 +80,36 @@ export default {
         return this.data;
     },
 
-    },
-    method: {
+
+      //   selected: this.set_filter.val,
+     //     search_data: this.search,
+     //     type_: this.type,
 
     },
-    created(){
-         this.admin_data= this.$store.getters['requests/admin_requests_question'];
-         this.data = this.$store.getters['requests/requests_question'];    
+    methods: {
+            
+   formData(form){
+                this.query_data=form;
+                this.$router.push({path: "/question",query: {type: this.query_data.selected, data: this.query_data.search_data}});
           
+
+                console.log(this.query_data);          
+    },
+ 
+
     },
 
+       
+    created(){
+
+
+        console.log(this.$route.query);
+
+
+
+         this.admin_data= this.$store.getters['requests/admin_requests_question'];
+         this.data = this.$store.getters['requests/requests_question'];       
+    },
 }
 </script>
 
