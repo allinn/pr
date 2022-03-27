@@ -5,7 +5,7 @@
       <component :is="slotProps.Component"></component>
     </transition>
     -->
-  <router-view>
+  <router-view :key="$route.fullPath">
   </router-view>
   <!--<the-footer>
   </the-footer>-->

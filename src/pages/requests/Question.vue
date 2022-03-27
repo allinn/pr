@@ -35,28 +35,33 @@
         </table>
     </section>
 
-    <main-filter :type="typeofPage" @save-data="formData" ></main-filter>
-    
-
+    <main-filter @save-data="formData"  ></main-filter>
+    <main-page :page="page_number" @num="formPage"></main-page>
 
 </template>
 <script>
 import MainFilter from '../../components/main/mainFilter.vue';
-import mainTable from '../../components/main/mainTable.vue';
+import MainTable from '../../components/main/mainTable.vue';
+import MainPage from '../../components/main/mainPage.vue';
 
 export default {
  components: {
-    mainTable,
+    MainTable,
     MainFilter,
+    MainPage,
   },
 
     data() {
         return{
-        typeofPage: "question",
-        admin_data: null,
-        data: null, //페이징 받은 데이터
+        admin_data: null, // 받은 데이터
+        data: null, //받은 데이터
+
+        page_number: 1, //페이징 받은 숫자데이터
+        page_type: '',
+        page_content: '',
+
         query_data: null, //페이징 할 데이터
-        page_data: null, //페이징 할 숫자데이터
+        query_page: null, //페이징 해야할 숫자
 
         };
     },
@@ -87,13 +92,16 @@ export default {
 
     },
     methods: {
+
+   formPage(num)
+   {
+       this.query_page=num;
+       this.$router.push({path: "/question",query: {type: this.page_type, data: this.page_content, page: this.query_page}});           
+   },
             
    formData(form){
                 this.query_data=form;
-                this.$router.push({path: "/question",query: {type: this.query_data.selected, data: this.query_data.search_data}});
-          
-
-                console.log(this.query_data);          
+                this.$router.push({path: "/question",query: {type: this.query_data.selected, data: this.query_data.search_data, page: 1}});        
     },
  
 
@@ -102,13 +110,16 @@ export default {
        
     created(){
 
-
-        console.log(this.$route.query);
-
-
+        if(this.$route.query.page!=null) this.page_number=this.$route.query.page;
+        if(this.$route.query.type!=null) this.page_type=this.$route.query.type;
+        if(this.$route.query.data!=null) this.page_content=this.$route.query.data;
 
          this.admin_data= this.$store.getters['requests/admin_requests_question'];
          this.data = this.$store.getters['requests/requests_question'];       
+
+       
+
+     //     console.log(this.$route.query,this.page_data);
     },
 }
 </script>

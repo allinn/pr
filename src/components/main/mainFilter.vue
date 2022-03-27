@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  props: ['type'],
+  //props: ['type'],
   emits: ['save-data'],
   data() {
     return {
@@ -62,10 +62,8 @@ export default {
         const formData ={
           selected: this.set_filter.val,
           search_data: this.search,
-          type_: this.type,
+         
         };
-
-        console.log(formData);
 
         this.$emit('save-data', formData);
       
