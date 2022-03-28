@@ -13,6 +13,7 @@ import Question from './pages/requests/Question.vue';
 import Review from './pages/requests/Review.vue';
 import Notice from './pages/requests/Notice.vue';
 import Search from './pages/requests/Search.vue';
+//import SearchDetail from './pages/requests/SearchDetail.vue';
 import QuestionDetail from './pages/requests/QuestionDetail.vue';
 import NoticeDetail from './pages/requests/NoticeDetail.vue';
 import Join from './pages/user/Join.vue';
@@ -55,12 +56,21 @@ const router = createRouter({
 
         },
 
+        { 
+            path: '/search', 
+            component: Search,
+           // children: [
+            //    { path: 'search_info',component: SearchDetail}
+           // ]
+        },
+
+        
         { path: '/:notFound(.*)', component: NotFound },
         { path: '/login', component: Login },
         { path: '/question', component: Question },
         { path: '/review', component: Review },
         { path: '/notice', component: Notice },
-        { path: '/search', component: Search },
+       
         { path: '/join', component: Join },
         { path: '/cart', component: Cart},
         { path: '/Order', component: Order },
