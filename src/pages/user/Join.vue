@@ -1,12 +1,8 @@
 <template>
     <section>
         <user-form></user-form>
-
     </section>
 </template>
-
-
-
 
 <script>
 import UserForm from '../../components/user/UserForm.vue';
