@@ -1,6 +1,6 @@
 <template>
     <section>
-        <user-form></user-form>
+        <user-form @save-data="saveData"></user-form>
     </section>
 </template>
 
@@ -13,10 +13,32 @@ export default {
 
   },
     data() {
-        
+        return {
+           // join_data: null,
+        }        
 
     },
 
+    methods: {
+        saveData(data)
+        {
+                //module 에서 throw 하고 try catch 할수 있다. 266
+
+            alert('회원가입 성공',data);
+
+            //this.$store.dispatch('user/signup',
+            //{
+            //      email: data.email,
+            //      password: data.password,
+            //});
+            //
+            
+
+            this.$router.replace('/main');
+            
+        }
+    },
+    
 
 
 
