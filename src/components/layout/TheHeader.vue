@@ -28,12 +28,22 @@
         <router-link to="/main">엘사키즈</router-link>
       </h1>
       <ul>
-        <li>
+     
+        <li v-if="!isLoggedIn">
           <router-link to="/login">Login</router-link>
         </li>
-        <li>
+        <li v-if="!isLoggedIn">
           <router-link to="/join">Join</router-link>
         </li>
+
+        <li v-if="isLoggedIn">
+          <base-button @click="logout">Logout</base-button>
+        </li>
+        <li v-if="isLoggedIn">
+          <router-link to="/join">Info</router-link>
+        </li>
+
+
         <li>
           <router-link to="/cart">Cart</router-link>
         </li>
@@ -102,6 +112,26 @@
 
 
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      
+    };
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+    },
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters['user/isAuthenticated'];
+    },
+  },
+}
+</script>
 
 <style scoped>
 

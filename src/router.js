@@ -20,6 +20,7 @@ import Join from './pages/user/Join.vue';
 import Cart from './pages/user/Cart.vue';
 import Order from './pages/user/MyPage.vue';
 import MyPage from './pages/user/Order.vue';
+import store from './store/index.js';
 
 
 const router = createRouter({
@@ -72,9 +73,9 @@ const router = createRouter({
         { path: '/notice', component: Notice },
        
         { path: '/join', component: Join },
-        { path: '/cart', component: Cart},
-        { path: '/Order', component: Order },
-        { path: '/MyPage', component: MyPage},
+        { path: '/cart', component: Cart, meta: {requireAuth: true}},
+        { path: '/Order', component: Order , meta: {requireAuth: true}},
+        { path: '/MyPage', component: MyPage , meta: {requireAuth: true}},
 
 
 
@@ -82,6 +83,20 @@ const router = createRouter({
 
 
     ]
+});
+
+router.beforeEach(function(to,from,next){
+    if(to.meta.requireAuth && !store.getters.isAuthenticated)
+    {
+        next('/login');
+    } 
+    else if (to.meta.requireAuth && store.getters.isAuthenticated)
+    {
+        next('/main');
+    }
+    else {
+        next();
+    }
 });
 
 export default router;

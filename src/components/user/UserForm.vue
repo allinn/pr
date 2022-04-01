@@ -24,7 +24,7 @@
     <div class="form-control" :class="{invalid: !password.isValid}">
       <label for="password">비밀번호</label>
       <input
-        type="text"
+        type="password"
         id="password"
         v-model.trim="password.val"
         @blur="clearValidity('password')"
@@ -34,7 +34,7 @@
     <div class="form-control" :class="{invalid: !repassword.isValid}">
       <label for="repassword">비밀번호 확인</label>
       <input
-        type="text"
+        type="password"
         id="repassword"
         v-model.trim="repassword.val"
         @blur="clearValidity('repassword')"
@@ -45,7 +45,7 @@
         <div class="form-control" :class="{invalid: !email.isValid}">
       <label for="email">이메일</label>
       <input
-        type="text"
+        type="email"
         id="email"
         v-model.trim="email.val"
         @blur="clearValidity('email')"
