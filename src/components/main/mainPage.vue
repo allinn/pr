@@ -54,7 +54,8 @@ export default {
       },
       NumMinus()
       {
-        this.page_num-=10;
+        this.page_num=Math.max(0,this.page_num-10);
+        
         console.log(this.page_num);
       },
 
