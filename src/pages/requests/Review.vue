@@ -13,7 +13,7 @@
                 :picture="review.picture"
                 :title="review.title"
                 :discription="review.discription"
-                :date="review.writing_date"
+                :writing_date="review.writing_date"
                 :writer="review.writer"
                 :stars="review.stars"
                 :attach="review.attach"

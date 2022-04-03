@@ -1,19 +1,42 @@
 <template>
     <tr>
-      <td v-if="username === 'ADMIN'">※</td>
-      <td v-else>{{id}}</td>       
-      <router-link :to="domain">
-      <td>{{ title }}  </td>
-      </router-link>
-      <td>{{username}} </td>
-      <td>{{date}}</td>
-      <td>{{seen}}</td>
+      <td>
+        <router-link :to="ItemDetailLink">
+          <img :src=picture>
+        </router-link>
+      </td>    
+      <td>
+          <router-link :to="ItemDetailLink" class="highlight">
+            상품명 : {{ title }}
+          </router-link>
+       <!-- attach -->
+          <button @click="ShowDetail">
+          {{discription}}
+          </button>
+      </td>
+      <td>
+        <p>{{writer}}</p>
+        <p>{{star_gp}}</p>
+      </td>
+      <td>{{writing_date}}</td>
     </tr>
+
+    <div v-if="detail" >
+      {{discription}}
+    </div>
+
 </template>
 
 <script>
    
 export default {
+
+data() {
+    return {
+      detail: false,
+    };
+  },
+
 
   props: {
     id: {
@@ -21,16 +44,12 @@ export default {
       type: Number,
     },
 
-    page_type:{
+    picture:{
       required: true,
       type: String,
     },
-    username: {
-      type: String,
-      required: true,
-    },
-    password: {
-      type: String,
+    stars: {
+      type: Number,
       required: true,
     },
     title: {
@@ -41,11 +60,11 @@ export default {
       type: String,
       required: true,
     },
-    date: {
+    writing_date: {
       require: true,
       type: String,
     },
-    seen: {
+    writer: {
       required: true,
       type: String,
     },
@@ -59,18 +78,37 @@ export default {
   computed: {
   
 
-      domain(){
-       
-        return '/'+this.page_type+'/'+this.id;
-      },
+     ItemDetailLink() {
+      return '/detail/' + this.id; 
+    },
 
    // ItemDetailLink() {
    //   return '/detail/' + this.id; 
    // },
+
+      star_gp()
+      {
+        let ss = "";
+        for(var i = this.stars; i>0; i--)
+        {
+            ss += '★';
+        }
+
+        for(var ii = 5-this.stars; ii>0; ii--)
+        {
+          ss+= '☆';
+        }
+    
+        return ss;
+
+      },
   },
   methods:
   {
- 
+     ShowDetail()
+    {
+        this.detail=!this.detail;
+    },
 
   },
 
@@ -79,6 +117,15 @@ export default {
 
 <style scoped>
 
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+button {
+  all: unset; 
+}
 
 h3 {
   font-size: 1.5rem;
