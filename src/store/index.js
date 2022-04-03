@@ -11,7 +11,6 @@ const store = createStore({
         items: itemModule,
         requests: requestsModule,
         reviews: reviewsModule,
-
         user: userModule,
     },
 
