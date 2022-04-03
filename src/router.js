@@ -22,7 +22,6 @@ import Order from './pages/user/MyPage.vue';
 import MyPage from './pages/user/Order.vue';
 import store from './store/index.js';
 
-
 const router = createRouter({
     history: createWebHistory(),
     routes: [
@@ -76,11 +75,6 @@ const router = createRouter({
         { path: '/cart', component: Cart, meta: {requireAuth: true}},
         { path: '/Order', component: Order , meta: {requireAuth: true}},
         { path: '/MyPage', component: MyPage , meta: {requireAuth: true}},
-
-
-
-
-
 
     ]
 });

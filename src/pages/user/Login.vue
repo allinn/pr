@@ -36,11 +36,8 @@
 </template>
 
 <script>
-import BaseButton from '../../components/ui/BaseButton.vue';
-
 
 export default {
-  components: { BaseButton },
 
   data()
   {
@@ -78,7 +75,6 @@ export default {
       }
 
       const formData = {
-
         id: this.id.val,
         password: this.password.val,
       };
