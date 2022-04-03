@@ -1,6 +1,44 @@
 import axios from "axios";
 
 export default {
+
+    //async login() {context.commit('setUser',)},
+    //singup() {},
+
+    /*logout(context)
+    {
+
+        context.commit('setUser',{
+        state.token: null;
+        state.userId: null;
+        state.toeknExperiation : null;
+        });
+           localStorage.removeItem('token', Data.idToken);
+
+    }
+
+
+    
+    localStorage.setItem('token', Data.idToken);
+        localStorage.setItem('userId', Data.localId);
+
+
+    tryLogin(context){
+        const token = localStorage.getItem('token');
+        // userid
+        if(token && userId)
+        {
+            context.commit('setUser'){
+
+            }
+        };
+    },
+
+
+*/
+
+
+
     async registerCoach(context, data) {
         //const userId = context.rootGetters.userId;
         const coachData = {

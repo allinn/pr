@@ -84,6 +84,8 @@ export default {
       };
 
       this.saveData(formData);
+
+      this.$router.replace('/main');
     },
 
     saveData(Data) {
