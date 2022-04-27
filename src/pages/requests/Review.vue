@@ -35,16 +35,7 @@ export default {
       ReviewTable,
       MainPage,
   },
-/*
-                    id: 5,
-                    
-                    picture: require('../../picture/img.jpg'),
-                    title: "구두5",
-                    discription: "세상에서 제일 아름다운 구두",
-                    writer: '김땡땡',
-                    stars: 5,
-                    writing_date: '2022-03-31',
-                    attach: */
+
     data() {
         return{
         reviews: null,
